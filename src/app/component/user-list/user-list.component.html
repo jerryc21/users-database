@@ -1,0 +1,34 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+                <th>ID</th>
+                <th> First Name</th>
+                <th> Last Name</th>
+                <th> Email</th>
+                <th> Address</th>
+                <th> State</th>
+                <th> Created(UTC)</th>
+                <th> Last Updated(UTC)</th>
+                <th class="text-center"> Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor=" let user of users">
+            <td>{{ user.id }}</td>
+            <td>{{ user.firstName }}</td>
+            <td>{{ user.lastName }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.address }}</td>
+            <td>{{ user.state }}</td>
+            <td>{{ user.created | date: 'medium' }}</td>
+            <td>{{ user.lastUpdated | date: 'medium'}}</td>
+            <td>
+                <div style="display: flex; gap: 10px;">
+                    <button (click) ="updateUser(user.id)" class = "btn btn-info"> Update </button>
+                    <button (click) ="deleteUser(user.id)" class = "btn btn-danger" > Delete </button>
+                    <button (click) ="userDetails(user.id)" class = "btn btn-info" > Details </button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
